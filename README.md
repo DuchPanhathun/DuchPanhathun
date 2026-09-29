@@ -6,21 +6,21 @@
   <img alt="DuchPanhathun's GitHub profile" src="dark_mode.svg" />
 </picture>
 
-**Full-stack engineer with AI/ML depth — Python + TypeScript — building fintech, media, and social-impact platforms for the Cambodian market.** 🇰🇭
+**Full-stack engineer with AI/ML depth — Python + TypeScript — who has built fintech, media, and social-impact platforms for the Cambodian market.** 🇰🇭
 
 Most of my work lives in private organization repositories, so this page is the map: what I've built, and what I owned in each.
 
-### 🔭 What I've been working on
+### 🔭 Recent work
 
-- 🏢 **Platform engineering at [Ailsa](https://github.com/Ailsa-io)** (since late 2025) — a grant-discovery and grant-application SaaS with deep AI integration. I work across the customer app, admin dashboard, API gateway, shared library, and scraper services, usually shipping one feature end to end across all of them.
-- 🎬 **Video streaming, 🧾 point-of-sale, and 🏦 co-op lending platforms** — commercial product builds in 2026, where I own specific modules (details below).
+- 🏢 **Platform engineering at [Ailsa](https://github.com/Ailsa-io)** (late 2025 – 2026) — a grant-discovery and grant-application SaaS with deep AI integration. I worked across the customer app, admin dashboard, API gateway, shared library, and scraper services, usually shipping one feature end to end across all of them.
+- 🎬 **Video streaming, 🧾 point-of-sale, and 🏦 co-op lending platforms** — project-based commercial builds in 2026, where I owned specific modules (details below).
 - 🌱 **Social-impact work** — AI crop-disease advisory for Cambodian farmers, and NGO websites and management systems.
 
 ### ✨ Highlights
 
 - 📄 **Published BSc thesis:** machine-learning fraud detection on **6.36M** online-payment transactions — domain-specific behavioural and temporal features, cost-sensitive learning, **99.96% ROC-AUC** with CatBoost. Solo work, Royal University of Phnom Penh, published on Zenodo with a DOI.
 - 🌾 **Computer vision for farmers:** sole author of the crop-disease training pipelines (ConvNeXt-Large, EfficientNet-B5, Swin-B) across PyTorch and TensorFlow/Keras for **Carep / SaveCrop**, an AI agricultural advisory served through a Telegram bot.
-- 🚀 **Bootstrapped a SaaS app from an empty repo:** Ailsa's Next.js 16 / React 19 customer application — Server Actions data layer, Auth0 authentication, AWS Amplify deployment — and its most active contributor since.
+- 🚀 **Bootstrapped a SaaS app from an empty repo:** Ailsa's Next.js 16 / React 19 customer application — Server Actions data layer, Auth0 authentication, AWS Amplify deployment — and was its most active contributor.
 - 🔐 **Auth done properly:** database-backed JWT session revocation with concurrent-device limits, so logout takes effect immediately; section- and department-level access control derived from existing membership data, without a schema migration.
 - 📺 **Live TV end to end:** entitlement-gated HLS playback authorized by short-lived tokens, built across a FastAPI backend and a Next.js client, with the API kept out of the video-segment traffic path.
 
@@ -73,4 +73,4 @@ Most of my work lives in private organization repositories, so this page is the 
 - **Early 2025** — HR Platform for Save the Children Cambodia: LP optimizer and local-LLM RAG
 - **Mid 2025** — BSc thesis on fraud detection, published
 - **Late 2025** — Carep / SaveCrop AI agri-advisory; joined **Ailsa**
-- **2026** — Ailsa platform engineering alongside streaming, POS, and co-op lending builds, and a solo NGO site (CCYMCR)
+- **2026** — Ailsa platform engineering alongside project-based streaming, POS, and co-op lending builds, and a solo NGO site (CCYMCR). All of these are now completed.
