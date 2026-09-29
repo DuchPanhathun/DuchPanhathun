@@ -1,7 +1,11 @@
 {
   "lines": [
-    { "key": "Role", "value": "Full-stack + AI/ML Engineer" },
-    { "key": "Focus", "value": "Fintech · Media · Social impact" },
-    { "key": "Stack", "value": "TypeScript · Python · Next.js · FastAPI" }
+    { "key": "Role", "value": "Software Engineer · AI/ML & Full-Stack" },
+    { "key": "Location", "value": "Phnom Penh, Cambodia" },
+    { "key": "Focus", "value": "AI platforms · Fintech · Social impact" },
+    { "key": "Stack", "value": "Python · TypeScript · FastAPI · Next.js · AWS" },
+    { "key": "Website", "value": "duchpanhathun.com", "section": "Contact" },
+    { "key": "Portfolio", "value": "duchpanhathun.xyz (3D)", "section": "Contact" },
+    { "key": "Email", "value": "duchpanhathun@gmail.com", "section": "Contact" }
   ]
 }

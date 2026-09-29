@@ -73,14 +73,32 @@ def customize(svg: str, lines: list[dict]) -> str:
         rows.append(e)
     info_x, info_attrs = info_els[0]["x"], info_els[0]["attrs"]
 
-    insert_at = next(
+    def section_end(name: str):
+        """Index just past the last row of the section headed `name`."""
+        for i, r in enumerate(rows):
+            if r and f"> {name} <" in r.get("body", ""):
+                j = i + 1
+                while j < len(rows) and rows[j] is not None:
+                    j += 1
+                return j
+        return None
+
+    # Lines without a "section" go right after Uptime; lines with one are
+    # appended to the end of that section (e.g. "Contact").
+    uptime_at = next(
         (i + 1 for i, r in enumerate(rows) if r and ". Uptime: " in r["body"]), 1
     )
-    new_rows = [
-        {"template": kv_line(l["key"], l["value"], info_x, info_attrs, c)}
-        for l in lines
+    top = [l for l in lines if not l.get("section")]
+    rows[uptime_at:uptime_at] = [
+        {"template": kv_line(l["key"], l["value"], info_x, info_attrs, c)} for l in top
     ]
-    rows[insert_at:insert_at] = new_rows
+    for l in lines:
+        if not l.get("section"):
+            continue
+        at = section_end(l["section"])
+        if at is None:
+            continue
+        rows.insert(at, {"template": kv_line(l["key"], l["value"], info_x, info_attrs, c)})
 
     # Original geometry → derive the ASCII column's height.
     content = height - 2 * PAD
