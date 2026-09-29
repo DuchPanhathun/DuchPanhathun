@@ -38,9 +38,13 @@ jobs:
           HANDLE: DuchPanhathun
           GH_ASCII_URL: https://gh.crafter.run
           COLS: "100"
+          # "keep" skips gh-ascii's ML background removal, which succeeds on
+          # some runs and silently falls back on others, so the portrait
+          # would otherwise change from day to day. Use "cutout" to try it.
+          BG: keep
         run: |
-          curl -fsSL --retry 3 --retry-delay 5 "$GH_ASCII_URL/$HANDLE?theme=dark&cols=$COLS" -o dark_mode.svg
-          curl -fsSL --retry 3 --retry-delay 5 "$GH_ASCII_URL/$HANDLE?theme=light&cols=$COLS" -o light_mode.svg
+          curl -fsSL --retry 3 --retry-delay 5 "$GH_ASCII_URL/$HANDLE?theme=dark&cols=$COLS&bg=$BG" -o dark_mode.svg
+          curl -fsSL --retry 3 --retry-delay 5 "$GH_ASCII_URL/$HANDLE?theme=light&cols=$COLS&bg=$BG" -o light_mode.svg
 
       - name: Add custom lines
         run: python3 scripts/customize_card.py card-lines.json dark_mode.svg light_mode.svg
