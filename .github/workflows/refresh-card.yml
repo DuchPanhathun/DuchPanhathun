@@ -3,6 +3,7 @@
 # any change to card-lines.json so edits to the text show up right away.
 #
 # To change the card's custom text: edit card-lines.json and push.
+# To change the portrait: replace portraits/dark.txt and portraits/light.txt.
 #
 # Heads-up: GitHub disables scheduled workflows after 60 days of repository
 # inactivity. If the card stops updating, re-enable it from the Actions tab.
@@ -17,6 +18,7 @@ on:
     branches: [main]
     paths:
       - card-lines.json
+      - portraits/**
       - scripts/customize_card.py
       - .github/workflows/refresh-card.yml
 
@@ -38,16 +40,17 @@ jobs:
           HANDLE: DuchPanhathun
           GH_ASCII_URL: https://gh.crafter.run
           COLS: "100"
-          # "keep" skips gh-ascii's ML background removal, which succeeds on
-          # some runs and silently falls back on others, so the portrait
-          # would otherwise change from day to day. Use "cutout" to try it.
+          # The portrait itself comes from portraits/<theme>.txt (a saved
+          # gh-ascii render), because gh-ascii's background removal gives a
+          # different picture from run to run. "keep" skips that slow step.
+          # Delete the portraits/ files to use gh-ascii's live portrait.
           BG: keep
         run: |
           curl -fsSL --retry 3 --retry-delay 5 "$GH_ASCII_URL/$HANDLE?theme=dark&cols=$COLS&bg=$BG" -o dark_mode.svg
           curl -fsSL --retry 3 --retry-delay 5 "$GH_ASCII_URL/$HANDLE?theme=light&cols=$COLS&bg=$BG" -o light_mode.svg
 
       - name: Add custom lines
-        run: python3 scripts/customize_card.py card-lines.json dark_mode.svg light_mode.svg
+        run: python3 scripts/customize_card.py card-lines.json --portraits portraits dark_mode.svg light_mode.svg
 
       - name: Commit only if the card changed
         run: |
